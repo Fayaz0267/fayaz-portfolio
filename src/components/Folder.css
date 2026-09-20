@@ -1,0 +1,235 @@
+:root {
+  --folder-color: #6C63FF; /* Matched with main brand primary */
+  --folder-back-color: #4c44cf;
+  --paper-1: #f8fafc;
+  --paper-2: #f1f5f9;
+  --paper-3: #ffffff;
+}
+
+.dark {
+  --paper-1: #1e293b;
+  --paper-2: #1e293b;
+  --paper-3: #0f172a;
+}
+
+.folder-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+  width: 100%;
+  padding: 40px 0;
+  position: relative;
+  perspective: 1200px;
+}
+
+.folder-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 100px; /* Space for fanned-up papers */
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.folder {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  outline: none;
+}
+
+/* Subtle idle hover effect when closed */
+.folder:not(.open):hover {
+  transform: translateY(-8px);
+}
+
+.folder:not(.open):hover .paper-1 {
+  transform: translate(-50%, -20%) rotate(-6deg);
+}
+
+.folder:not(.open):hover .paper-2 {
+  transform: translate(-50%, -15%) rotate(6deg);
+}
+
+.folder:not(.open):hover .paper-3 {
+  transform: translate(-50%, -25%) rotate(2deg);
+}
+
+.folder:not(.open):hover .folder__front {
+  transform: skew(12deg) scaleY(0.75);
+}
+
+.folder:not(.open):hover .right {
+  transform: skew(-12deg) scaleY(0.75);
+}
+
+/* Open folder animations */
+.folder.open {
+  transform: translateY(20px);
+}
+
+.folder.open .paper:nth-child(1) {
+  transform: translate(-105%, -70%) rotate(-12deg);
+  box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.folder.open .paper:nth-child(1):hover {
+  transform: translate(-105%, -82%) rotate(-12deg) scale(1.05);
+  z-index: 50;
+  box-shadow: -15px 30px 50px rgba(0, 0, 0, 0.22);
+}
+
+.folder.open .paper:nth-child(2) {
+  transform: translate(5%, -70%) rotate(12deg);
+  box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+}
+
+.folder.open .paper:nth-child(2):hover {
+  transform: translate(5%, -82%) rotate(12deg) scale(1.05);
+  z-index: 50;
+  box-shadow: 15px 30px 50px rgba(0, 0, 0, 0.22);
+}
+
+.folder.open .paper:nth-child(3) {
+  transform: translate(-50%, -105%) rotate(2deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+  z-index: 30;
+}
+
+.folder.open .paper:nth-child(3):hover {
+  transform: translate(-50%, -118%) rotate(2deg) scale(1.06);
+  z-index: 50;
+  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.25);
+}
+
+.folder.open .folder__front {
+  transform: skew(15deg) scaleY(0.5);
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.folder.open .right {
+  transform: skew(-15deg) scaleY(0.5);
+}
+
+.folder__back {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background: var(--folder-back-color);
+  border-radius: 0px 28px 28px 28px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.folder__back::after {
+  position: absolute;
+  z-index: 0;
+  bottom: 98%;
+  left: 0;
+  content: '';
+  width: 90px;
+  height: 24px;
+  background: var(--folder-back-color);
+  border-radius: 14px 14px 0 0;
+}
+
+.paper {
+  position: absolute;
+  z-index: 2;
+  bottom: 12%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  width: 90%;
+  height: 140%;
+  background: var(--paper-3);
+  border-radius: 20px;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.paper:nth-child(1) {
+  background: var(--paper-1);
+  width: 82%;
+  height: 130%;
+}
+
+.paper:nth-child(2) {
+  background: var(--paper-2);
+  width: 86%;
+  height: 135%;
+}
+
+.paper:nth-child(3) {
+  background: var(--paper-3);
+  width: 90%;
+  height: 140%;
+}
+
+.folder__front {
+  position: absolute;
+  z-index: 4;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--folder-color);
+  border-radius: 14px 28px 28px 28px;
+  transform-origin: bottom;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.folder:focus-visible {
+  outline: 2px solid var(--folder-color);
+  outline-offset: 4px;
+  border-radius: 28px;
+}
+
+/* Custom responsiveness for smaller screens to fit fanned out cards perfectly */
+@media (max-width: 768px) {
+  .folder-section-container {
+    min-height: 420px;
+    padding: 20px 0;
+  }
+  
+  .folder-wrapper {
+    margin-top: 80px;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 480px) {
+  .folder-section-container {
+    min-height: 380px;
+  }
+  
+  .folder-wrapper {
+    margin-top: 60px;
+    transform: scale(0.62);
+  }
+  
+  /* On very small mobile layouts, compact the translations of fanned open papers */
+  .folder.open .paper:nth-child(1) {
+    transform: translate(-98%, -60%) rotate(-8deg);
+  }
+  .folder.open .paper:nth-child(1):hover {
+    transform: translate(-98%, -68%) rotate(-8deg) scale(1.03);
+  }
+  
+  .folder.open .paper:nth-child(2) {
+    transform: translate(2%, -60%) rotate(8deg);
+  }
+  .folder.open .paper:nth-child(2):hover {
+    transform: translate(2%, -68%) rotate(8deg) scale(1.03);
+  }
+  
+  .folder.open .paper:nth-child(3) {
+    transform: translate(-48%, -95%) rotate(1deg);
+  }
+  .folder.open .paper:nth-child(3):hover {
+    transform: translate(-48%, -103%) rotate(1deg) scale(1.03);
+  }
+}

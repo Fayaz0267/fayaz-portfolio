@@ -1,0 +1,6 @@
+{
+  "name": "SMF Advanced Portfolio",
+  "description": "Advanced portfolio website for Shaik Mahammad Fayaz (SMF) with React Bits BubbleMenu integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
