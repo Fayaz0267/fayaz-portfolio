@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="Portfolio Banner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
 # Fayaz's Portfolio — AI/ML & Full-Stack Developer
 
 > A personal portfolio showcasing my projects, skills, and experience at the intersection of AI/ML and full-stack web development.
