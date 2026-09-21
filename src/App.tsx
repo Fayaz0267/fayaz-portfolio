@@ -1,7 +1,3 @@
-# Open App.tsx and change this line:
-# import GithubStats from './components/GithubStats';
-# TO:
-# import GithubStats from './components/GitHubStats';
 import React, { useState, useEffect, useRef, useMemo, lazy, Suspense, useCallback } from 'react';
 import {
   Cpu,
