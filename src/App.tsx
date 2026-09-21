@@ -1,3 +1,7 @@
+# Open App.tsx and change this line:
+# import GithubStats from './components/GithubStats';
+# TO:
+# import GithubStats from './components/GitHubStats';
 import React, { useState, useEffect, useRef, useMemo, lazy, Suspense, useCallback } from 'react';
 import {
   Cpu,
@@ -62,7 +66,7 @@ import IntroSplash from './components/IntroSplash';
 import SectionDots, { DotSection } from './components/SectionDots';
 import CommandPalette, { PaletteCommand } from './components/CommandPalette';
 import TerminalModal from './components/TerminalModal';
-import GithubStats from './components/GithubStats';
+import GithubStats from './components/GitHubStats';
 import { useTheme } from './context/ThemeContext';
 import { playClick, playHover, playSuccessChime } from './utils/sound';
 import { useCoarsePointer, useReducedMotion, useSoundPref } from './hooks/usePrefs';
