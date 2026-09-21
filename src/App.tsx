@@ -913,26 +913,6 @@ export default function App() {
                   Filter by category, then select any tile to see my proficiency. The dots on each tile show my level out of five.
                 </p>
               </div>
-
-              <div className="flex flex-wrap items-center gap-2 p-2 bg-white dark:bg-slate-800 border border-black/10 dark:border-white/10 shadow-sm rounded-2xl transition-colors duration-300">
-                <button type="button" onClick={() => setIsCarouselPaused(!isCarouselPaused)} title={isCarouselPaused ? "Play carousel" : "Pause carousel"} className="p-3 bg-white dark:bg-slate-800 hover:bg-black/5 dark:hover:bg-slate-700 border border-black/10 dark:border-white/10 rounded-xl text-dark dark:text-white transition-all active:scale-95 cursor-pointer flex items-center gap-2 text-xs font-bold">
-                  {isCarouselPaused ? <Play className="w-4 h-4 text-emerald-500" /> : <Pause className="w-4 h-4 text-primary" />}
-                  {isCarouselPaused ? "Resume" : "Pause"}
-                </button>
-                <button type="button" onClick={() => setIsCarouselReversed(!isCarouselReversed)} title="Reverse scroll direction" className="p-3 bg-white dark:bg-slate-800 hover:bg-black/5 dark:hover:bg-slate-700 border border-black/10 dark:border-white/10 rounded-xl text-dark dark:text-white transition-all active:scale-95 cursor-pointer flex items-center gap-2 text-xs font-bold">
-                  <RotateCw className={`w-4 h-4 text-accent transition-transform duration-500 ${isCarouselReversed ? 'rotate-180' : ''}`} />
-                  Reverse
-                </button>
-                <div className="h-6 w-[1px] bg-black/10 dark:bg-white/10 mx-1" />
-                <button type="button" onClick={() => setSpeedMultiplier((prev) => Math.max(0.3, prev - 0.2))} title="Speed up scroll" disabled={speedMultiplier <= 0.3} className="p-3 bg-white dark:bg-slate-800 hover:bg-black/5 dark:hover:bg-slate-700 border border-black/10 dark:border-white/10 rounded-xl text-dark dark:text-white disabled:opacity-30 disabled:pointer-events-none transition-all active:scale-95 cursor-pointer flex items-center gap-1 text-xs font-bold">
-                  <Plus className="w-4 h-4 text-neon" />
-                  Faster
-                </button>
-                <button type="button" onClick={() => setSpeedMultiplier((prev) => Math.min(3.0, prev + 0.2))} title="Slow down scroll" disabled={speedMultiplier >= 3.0} className="p-3 bg-white dark:bg-slate-800 hover:bg-black/5 dark:hover:bg-slate-700 border border-black/10 dark:border-white/10 rounded-xl text-dark dark:text-white disabled:opacity-30 disabled:pointer-events-none transition-all active:scale-95 cursor-pointer flex items-center gap-1 text-xs font-bold">
-                  <Minus className="w-4 h-4 text-secondary" />
-                  Slower
-                </button>
-              </div>
             </div>
 
             <div className="flex flex-wrap gap-2 mt-8" role="group" aria-label="Filter technologies by category">
